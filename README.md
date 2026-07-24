@@ -103,11 +103,11 @@ Just click and generate.
 - [x] Initial GUI
 - [x] Character set selection
 - [x] Output configuration
-- [ ] Saved presets
-- [ ] Dark Mode
+- [x] Saved presets
+- [x] Dark Mode
+- [x] Advanced Crunch options
 - [ ] Multi-language support
 - [ ] Linux Support
-- [ ] Advanced Crunch options
 
 ---
 
