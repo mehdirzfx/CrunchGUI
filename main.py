@@ -5,6 +5,7 @@ Author: Mehdi Rezaei Far
 Github : https://github.com/mehdirzfx
 """
 import os
+import sys
 import json
 import shutil
 import subprocess
@@ -14,7 +15,11 @@ import webbrowser
 import tkinter as tk
 from tkinter import ttk, filedialog, messagebox, scrolledtext
 
-APP_DIR = os.path.dirname(os.path.abspath(__file__))
+if getattr(sys, "frozen", False):
+    APP_DIR = os.path.dirname(os.path.abspath(sys.executable))
+else:
+    APP_DIR = os.path.dirname(os.path.abspath(__file__))
+    
 PRESETS_FILE = os.path.join(APP_DIR, "crunch_gui_presets.json")
 GITHUB_URL = "https://github.com/mehdirzfx"
 APP_VERSION = "1.0.0"
@@ -197,7 +202,7 @@ class CrunchGUI(tk.Tk):
         self.tk_widgets_to_theme = []
         self._loading_preset = False
 
-        self.crunch_path_var = tk.StringVar(value=find_crunch_exe())
+        self.crunch_path_var = tk.StringVar(value=os.path.join(APP_DIR, "crunch.exe"))
         self.mode_var = tk.StringVar(value="charset")
         self.min_len_var = tk.IntVar(value=5)
         self.max_len_var = tk.IntVar(value=5)
